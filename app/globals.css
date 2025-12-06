@@ -37,23 +37,15 @@ body {
 }
 .animate-float-up { animation: floatUp 8s linear infinite; }
 
-/* ---------- RESPONSIVE SHRINK ---------- */
-@media (max-width: 768px) {
-  /* text */
-  html {
-    font-size: 14px; /* 1 rem = 14 px */
-  }
-  /* buttons */
-  .btn-shrink {
-    @apply px-4 py-2 text-sm rounded-lg;
-  }
-  /* cards */
-  .card-shrink {
-    @apply p-3 rounded-xl text-sm;
-  }
-}
-
 /* ---------- GLOBAL SHRINK ---------- */
 html {
-  font-size: 10px; /* 1 rem = 14 px instead of 16 */
+  font-size: 12px; /* 1 rem = 12 px instead of 16 */
+}
+
+/* ---------- MOBILE FINE-TUNE ---------- */
+@media (max-width: 640px) {
+  html { font-size: 12px; }                       /* 1 rem = 13 px on phones */
+  body { @apply overflow-x-hidden; }              /* kill horizontal scroll */
+  /* optional: tighter grid on wall */
+  .mobile-grid { @apply grid-cols-2 gap-3; }      /* 2 columns, tiny gap */
 }
