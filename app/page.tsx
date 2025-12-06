@@ -3,6 +3,7 @@
 import CountdownBar from '@/components/CountdownBar';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import LayeredBg from '@/components/LayeredBg';
 
 export default function HomePage() {
   const router = useRouter();
@@ -21,18 +22,19 @@ export default function HomePage() {
   return (
     <>
       <CountdownBar />
+      <LayeredBg />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="pt-16 min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 flex flex-col items-center justify-center p-4 text-center"
+        className="pt-16 min-h-screen flex flex-col items-center justify-center p-4 text-center relative z-10"
       >
         {/* bigger GIF */}
         <div className="mb-6 w-full max-w-lg">
           <img
-            src="/images/h2di-pikachu-crazy.gif"
+            src="/images/begging.gif"
             alt="Pikachu"
-            className="mx-auto w-72 md:w-200"
+            className="mx-auto w-72 md:w-100"
           />
         </div>
 

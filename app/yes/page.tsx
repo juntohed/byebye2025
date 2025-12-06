@@ -34,17 +34,24 @@ export default function YesPage() {
   return (
     <>
       <CountdownBar />
-      <div className="pt-16 min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50 flex flex-col items-center justify-center px-6 text-center gap-8">
-        {/* giant Pikachu */}
+      <div
+        className="pt-16 min-h-screen flex flex-col items-center justify-center p-4 text-center relative"
+        style={{
+            backgroundImage: 'url(/images/nyan-cat.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+        }}
+    >
+        {/* giant Cat */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         >
           <img
-            src="/images/pikachu-pikachu-meme.gif"
-            alt="Party Pikachu"
-            className="w-80 md:w-96"
+            src="/images/source.gif"
+            alt="Nyan Cat"
+            className="w-100 md:w-100"
           />
         </motion.div>
 
@@ -55,7 +62,7 @@ export default function YesPage() {
           transition={{ delay: 0.2 }}
           className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-600"
         >
-          Yay! Pikachu’s already packing his party hat 🎉
+          Share some memories! 🎉
         </motion.h1>
 
         {/* progress bar */}
