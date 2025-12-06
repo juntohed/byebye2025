@@ -75,22 +75,6 @@ export default function BoardPage() {
           <h1 className="text-5xl md:text-6xl font-black text-center mb-4 text-amber-900">SGN Memory Wall 2025</h1>
           <p className="text-center text-amber-700 mb-12 text-xl">What were the best moments for you?</p>
 
-          {/* top memory */}
-          {topMemory && topMemory.likes > 0 && (
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="mb-12 p-8 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-2xl shadow-xl border-2 border-amber-300"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl">🏆</span>
-                <span className="font-bold text-amber-800 text-lg">Most loved memory</span>
-              </div>
-              <p className="text-gray-800 italic text-lg">“{topMemory.content}”</p>
-              <div className="text-sm text-amber-700 mt-3">— {topMemory.author} · ❤️ {topMemory.likes}</div>
-            </motion.div>
-          )}
-
           {/* form */}
           <div className="mb-12">
             <textarea
@@ -117,6 +101,22 @@ export default function BoardPage() {
               {submitting ? 'Posting...' : 'Pin It to the Wall!'}
             </button>
           </div>
+          
+          {/* top memory */}
+          {topMemory && topMemory.likes > 0 && (
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="mb-12 p-8 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-2xl shadow-xl border-2 border-amber-300"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">🏆</span>
+                <span className="font-bold text-amber-800 text-lg">Most loved memory</span>
+              </div>
+              <p className="text-gray-800 italic text-lg">“{topMemory.content}”</p>
+              <div className="text-sm text-amber-700 mt-3">— {topMemory.author} · ❤️ {topMemory.likes}</div>
+            </motion.div>
+          )}
 
           {/* wall with scroll anchor */}
           <div ref={wallRef} className="relative w-full mx-auto bg-amber-100/70 backdrop-blur-sm border-2 border-amber-200 rounded-3xl p-8">
