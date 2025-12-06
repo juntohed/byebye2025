@@ -49,7 +49,7 @@ export default function YesPage() {
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         >
           <img
-            src="/images/source.gif"
+            src="/images/nyan-cat.gif"
             alt="Nyan Cat"
             className="w-100 md:w-100"
           />

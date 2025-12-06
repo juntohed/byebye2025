@@ -37,3 +37,23 @@ body {
 }
 .animate-float-up { animation: floatUp 8s linear infinite; }
 
+/* ---------- RESPONSIVE SHRINK ---------- */
+@media (max-width: 768px) {
+  /* text */
+  html {
+    font-size: 14px; /* 1 rem = 14 px */
+  }
+  /* buttons */
+  .btn-shrink {
+    @apply px-4 py-2 text-sm rounded-lg;
+  }
+  /* cards */
+  .card-shrink {
+    @apply p-3 rounded-xl text-sm;
+  }
+}
+
+/* ---------- GLOBAL SHRINK ---------- */
+html {
+  font-size: 14px; /* 1 rem = 14 px instead of 16 */
+}
