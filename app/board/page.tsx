@@ -125,7 +125,7 @@ export default function BoardPage() {
             )}
 
             {/* auto-height rows → cards collapse when “Show less” */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 auto-rows-[max-content]">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 auto-rows-[max-content] mobile-grid">
               <AnimatePresence>
                 {memories.map((m, i) => (
                   <MemoryCard
