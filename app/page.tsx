@@ -1,65 +1,71 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import CountdownBar from '@/components/CountdownBar';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+
+export default function HomePage() {
+  const router = useRouter();
+
+  const moveNoButton = () => {
+    const btn = document.getElementById('noButton');
+    if (!btn) return;
+    const pad = 20;
+    const maxX = window.innerWidth - btn.offsetWidth - pad;
+    const maxY = window.innerHeight - btn.offsetHeight - pad;
+    btn.style.position = 'fixed';
+    btn.style.left = `${Math.random() * maxX + pad}px`;
+    btn.style.top = `${Math.random() * maxY + pad}px`;
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <CountdownBar />
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="pt-16 min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 flex flex-col items-center justify-center p-4 text-center"
+      >
+        {/* bigger GIF */}
+        <div className="mb-6 w-full max-w-lg">
+          <img
+            src="/images/h2di-pikachu-crazy.gif"
+            alt="Pikachu"
+            className="mx-auto w-72 md:w-200"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* tighter, bolder headline */}
+        <h1 className="text-6xl md:text-7xl font-black text-center mb-3 tracking-tight leading-none">
+          Are We Saying
+          <br />
+          <span className="text-pink-800">#BYEBYE2025</span> Together?
+        </h1>
+
+        {/* closer CTA block */}
+        <div className="flex gap-8 items-center justify-center mt-4">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => router.push('/yes')}
+            className="px-16 py-8 bg-pink-500 text-white rounded-full font-black text-2xl hover:bg-pink-600 transition shadow-xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Yes!
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            id="noButton"
+            onMouseOver={moveNoButton}
+            onClick={moveNoButton}
+            className="px-16 py-8 bg-gray-300 text-gray-800 rounded-full font-black text-2xl relative cursor-pointer transition shadow-xl"
           >
-            Documentation
-          </a>
+            No
+          </motion.button>
         </div>
-      </main>
-    </div>
+      </motion.div>
+    </>
   );
 }
