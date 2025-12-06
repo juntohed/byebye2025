@@ -4,6 +4,7 @@ import CountdownBar from '@/components/CountdownBar';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import LayeredBg from '@/components/LayeredBg';
 
 export default function HomePage() {
   const router = useRouter();
