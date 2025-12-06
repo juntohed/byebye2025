@@ -35,18 +35,21 @@ export default function HomePage() {
   return (
     <>
       <CountdownBar />
+      <LayeredBg />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="pt-16 min-h-screen flex flex-col items-center justify-center p-4 text-center relative"
-        style={{ backgroundImage: 'url(/images/sky.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        className="pt-16 min-h-screen flex flex-col items-center justify-center p-4 text-center relative z-10"
       >
-        {/* Giant Pikachu */}
+        {/* bigger GIF */}
         <div className="mb-6 w-full max-w-lg">
-          <img src="/images/h2di-pikachu-crazy.gif" alt="Pikachu" className="mx-auto w-72 md:w-80" />
+          <img
+            src="/images/begging.gif"
+            alt="Pikachu"
+            className="mx-auto w-72 md:w-100"
+          />
         </div>
-
         <h1 className="text-6xl md:text-7xl font-black text-center mb-3 tracking-tight leading-none text-pink-800">
           Are We Saying<br /><span className="text-pink-900">#BYEBYE2025</span> Together?
         </h1>
